@@ -1,8 +1,7 @@
 import json
 
 from yelpapi import YelpAPI
-import boto3
-from .log_writer import *
+from log_writer import *
 
 logger = get_logger('lambda-yelp')
 
@@ -28,12 +27,13 @@ def get_config(context):
 
 def handler(event, context):
 	config_data = get_config(context)
-	response = {'Status': 'success'}	
+	response = {'Status': 'success'}
+
 	try:
-		lat = event.body.lat if event.body.lat else 0
-		long = event.body.long if event.body.long else 0
-		name = event.body.name if event.body.name else ''
-		limit = event.body.limit if event.body.limit else 100
+		lat = event["lat"] if event["lat"] else 0
+		long = event["long"] if event["long"] else 0
+		name = event["name"] if event["name"] else ''
+		limit = event["limit"] if event["limit"] else 50
 
 		if (lat==0 or long==0 or name==''):
 			logger.error('**ERROR: code.parameters.required')

@@ -14,3 +14,6 @@ This lambda function gets rating of location, using Yelp service and built based
    ./build.sh -p <path-to-lambda-yelp>
  3. Step 2 creates a .zip file in the <path-to-lambda-yelp> folder
  4. Upload the zip file created into AWS console
+
+## Note:
+ - The limit parameter should not be exceeding at 50 - (https://www.yelp.com/developers/documentation/v3/business_search)

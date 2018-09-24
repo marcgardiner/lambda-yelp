@@ -44,6 +44,8 @@ cd $ZIP_PATH
 virtualenv --python=python3.6 "$ZIP_PATH/dist/venv"
 source $ZIP_PATH/dist/venv/bin/activate
 
+VIRTUAL_ENV=$ZIP_PATH/dist/venv
+
 pip install -r $ZIP_PATH/src/requirements.txt
 
 cd $ZIP_PATH/src
